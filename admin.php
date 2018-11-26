@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "koneksi.php";
+include "../admin/koneksi.php";
 
   if(!isset($_SESSION['username'])){
     header("location:login.php");
@@ -250,9 +250,9 @@ include "koneksi.php";
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="form-perijinan.php">Form Perijinan</a></li>
-              <li><a class="" href="form-tamu.php">Form Tamu</a></li>
-              <li><a class="" href="form-pendaftaran.html">Form Pendaftaran</a></li>
+              <li><a class="" href="../admin/form-perijinan.php">Form Perijinan</a></li>
+              <li><a class="" href="../admin/form-tamu.php">Form Tamu</a></li>
+              <li><a class="" href="../admin/form-pendaftaran.php">Form Pendaftaran</a></li>
             </ul>
           </li>
 
@@ -263,9 +263,9 @@ include "koneksi.php";
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="tabel-tamu.html">Table Tamu</a></li>
-              <li><a class="" href="tabel-santri.html">Table Data Santri</a></li>
-              <li><a class="" href="tabel-perijinan.html">Table Perijinan</a></li>
+              <li><a class="" href="../admin/tabel-tamu.php">Table Tamu</a></li>
+              <li><a class="" href="../admin/tabel-santri.php">Table Data Santri</a></li>
+              <li><a class="" href="../admin/tabel-perijinan.php">Table Perijinan</a></li>
             </ul>
           </li>
 
@@ -276,10 +276,10 @@ include "koneksi.php";
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="profile.html">Profile</a></li>
-              <li><a class="" href="about.html"><span>About</span></a></li>
-              <li><a class="" href="galery.html">Galery</a></li>
-              <li><a class="" href="contak.html">Contak</a></li>
+              <li><a class="" href="../admin/profile.php">Profile</a></li>
+              <li><a class="" href="../admin/about.php"><span>About</span></a></li>
+              <li><a class="" href="../admin/galery.php">Galery</a></li>
+              <li><a class="" href="../admin/contak.php">Contak</a></li>
             </ul>
           </li>
 

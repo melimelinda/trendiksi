@@ -1,7 +1,7 @@
 <?php
 // we must never forget to start the session
 session_start();
-include "koneksi.php";
+include "../admin/koneksi.php";
 $username = $_POST['username'];
 $password = $_POST['password'];
 
