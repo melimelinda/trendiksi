@@ -1,14 +1,9 @@
-<?php
-session_start();
-include "../admin/koneksi.php";
-
-  if(!isset($_SESSION['username'])){
-    header("location:login.php");
-    exit();
-  }else{
-    $username = $_SESSION['username'];
-  }
-  ?><!DOCTYPE html>
+<?php 
+include "koneksi.php";
+$nama=$_GET['nama'];
+$query=mysqli_query($con,"select * from perijinan where nama='$nama'");
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,7 +14,7 @@ include "../admin/koneksi.php";
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Basic Table | Creative - Bootstrap 3 Responsive Admin Template</title>
+  <title>Form Validation | Creative - Bootstrap 3 Responsive Admin Template</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +53,7 @@ include "../admin/koneksi.php";
       </div>
 
       <!--logo start-->
-      <a href="../guest/admin.html" class="logo">TREN<span class="lite">DIKSI</span></a>
+      <a href="../guest/admin.php" class="logo">TREN<span class="lite">DIKSI</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -215,7 +210,7 @@ include "../admin/koneksi.php";
               </li>
               
               <li>
-            <a href="../guest/logout.php"><i class="icon_key_alt"></i> Log Out</a>
+                 <a href="../guest/logout.php"><i class="icon_key_alt"></i> Log Out</a>
               </li>
               
             </ul>
@@ -283,6 +278,8 @@ include "../admin/koneksi.php";
         <!-- sidebar menu end-->
       </div>
     </aside>
+    <!--sidebar end-->
+
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
@@ -290,62 +287,65 @@ include "../admin/koneksi.php";
           <div class="col-lg-12">
             <img src="img/head.png" width="100%"><!--<i class="fa fa-laptop"></i> Dashboard</h3> -->
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="../guest/admin.html">Home</a></li>
-              <li><i class="fa fa-table"></i>Table</li>
-              <li><i class="fa fa-th-list"></i>Tabel Perijinan</li>
+              <li><i class="fa fa-home"></i><a href="../guest/admin.php">Home</a></li>
+              <li><i class="icon_document_alt"></i>Forms</li>
+              <li><i class="fa fa-files-o"></i>Form Perijinan</li>
             </ol>
           </div>
         </div>
-        <!-- page start-->
+        <!-- Form validations -->
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Tabel Perijinan
+                Form Perijinan
               </header>
-              <table class="table">
-                <?php 
-                  include "../admin/koneksi.php";
-                ?>
-                <thead>
-                  <tr>
-                    <th>No.</th>
-                    <th>Nama</th>
-                    <th>Tujuan</th>
-                    <th>Tgl Izin</th>
-                    <th>Tgl Kembali</th>
-                    <th><i class="icon_cogs"></i> Action</th>
-                  </tr>
-                  
-                </thead>
-                <tbody>
-                  <?php 
-                  $query=mysqli_query($con,"SELECT * FROM perijinan ORDER BY nama");
-                  $no=1;
-                  while($var=mysqli_fetch_array($query)){
-                  echo "<tr>
-                    <td>$no</td>
-                    <td>$var[nama]</td>
-                    <td>$var[tujuan]</td>
-                    <td>$var[tgl_izin]</td>
-                    <td>$var[tgl_kembali]</td>";
-                  ?>
-                    <td>
-                      <div class="btn-group">
-                        <a class="btn btn-primary" href="form-perijinan.php"><i class="icon_plus_alt2"></i></a>
-                        <a class="btn btn-success" <?php echo "href='formeditijin.php?nama=$var[nama]'"; ?>><i class="icon_pencil-edit"></i></a>
-                        <a class="btn btn-danger" <?php echo "href='deleteperijinan.php?nama=$var[nama]'"; ?>><i class="icon_close_alt2"></i></a>
+              <div class="panel-body">
+                <div class="form">
+                  <form class="form-validate form-horizontal" id="formperijinan" method="POST" action="editperijinan.php">
+                    <?php
+                      while($row=mysqli_fetch_array($query)){
+                    ?>
+                    <div class="form-group ">
+                      <label for="nama" class="control-label col-lg-2">Nama </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="nama" name="nama" type="text" value="<?php echo $row['nama'];?>" required />
                       </div>
-                    </td>
-                  <?php echo "</tr>";
-                  $no++;
-                  }
-                  ?>
-                </tbody>
-              </table>
+                    </div>
+                    <div class="form-group ">
+                      <label for="tujuan" class="control-label col-lg-2">Tujuan/Perihal </label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="tujuan" type="text" name="tujuan" value="<?php echo $row['tujuan'];?>" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="tglizin" class="control-label col-lg-2">Tgl Izin </label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="tglizin" type="text" name="tglizin" value="<?php echo $row['tgl_izin'];?>" />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="tglkembali" class="control-label col-lg-2">Tgl Kembali </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="tglkembali" name="tglkembali" type="text" value="<?php echo $row['tgl_kembali'];?>" data-date-format="dd-mm-yyyy" required />
+                      </div>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                        <button class="btn btn-primary" type="submit">Update</button>
+                        <button class="btn btn-default" type="button">Cancel</button>
+                      </div>
+                    </div>
+                    <?php } ?>
+                  </form>
+                </div>
+
+              </div>
             </section>
           </div>
         </div>
+        
         <!-- page end-->
       </section>
     </section>
@@ -363,12 +363,18 @@ include "../admin/koneksi.php";
     </div>
   </section>
   <!-- container section end -->
+
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <!-- nicescroll -->
+  <!-- nice scroll -->
   <script src="js/jquery.scrollTo.min.js"></script>
   <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+  <!-- jquery validate js -->
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+  <!-- custom form validation script for this page-->
+  <script src="js/form-validation-script.js"></script>
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
 

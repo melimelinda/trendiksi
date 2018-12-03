@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+session_start();
+include "../admin/koneksi.php";
+
+  if(!isset($_SESSION['username'])){
+    header("location:login.php");
+    exit();
+  }else{
+    $username = $_SESSION['username'];
+  }
+  ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -187,7 +197,12 @@
                             <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                            <span class="username">Meli Melinda</span>
+                            <span class="username">
+                              <?php 
+                                //$_SESSION['username']=$username; 
+                                echo "$username";
+                              ?>
+                             </span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
@@ -293,6 +308,12 @@
               <div class="panel-body">
                 <div class="form">
                   <form class="form-validate form-horizontal" id="formperijinan" method="POST" action="saveijin.php">
+                    <div class="form-group ">
+                      <label for="nik" class="control-label col-lg-2">NIK </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="nik" name="nik" type="text" required />
+                      </div>
+                    </div>
                     <div class="form-group ">
                       <label for="nama" class="control-label col-lg-2">Nama </label>
                       <div class="col-lg-10">

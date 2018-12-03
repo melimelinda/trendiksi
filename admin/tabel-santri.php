@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+session_start();
+include "../admin/koneksi.php";
+
+  if(!isset($_SESSION['username'])){
+    header("location:../guest/login.php");
+    exit();
+  }else{
+    $username = $_SESSION['username'];
+  }
+  ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -187,7 +197,12 @@
                             <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                            <span class="username">Meli Melinda</span>
+                            <span class="username">
+                              <?php 
+                                //$_SESSION['username']=$username; 
+                                echo "$username";
+                              ?>
+                             </span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
@@ -324,8 +339,16 @@
                     <td>$var[status]</td>
                     <td>$var[kewarganegaraan]</td>
                     <td>$var[pekerjaan]</td>
-                    <td>$var[notelp]</td>
-                  </tr>";
+                    <td>$var[notelp]</td>";
+                  ?>
+                    <td>
+                      <div class="btn-group">
+                        <a class="btn btn-primary" href="form-pendaftaran.php"><i class="icon_plus_alt2"></i></a>
+                        <a class="btn btn-success" <?php echo "href='formeditsantri.php?nik=$var[nik]'"; ?>><i class="icon_pencil-edit"></i></a>
+                        <a class="btn btn-danger" <?php  echo "href='deletesantri.php?nik=$var[nik]'"?>><i class="icon_close_alt2"></i></a>
+                      </div>
+                    </td>
+                  <?php echo "</tr>";
                   $no++;
                   }
                   ?>

@@ -19,7 +19,7 @@ include "../admin/koneksi.php";
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Basic Table | Creative - Bootstrap 3 Responsive Admin Template</title>
+  <title>Form Validation | Creative - Bootstrap 3 Responsive Admin Template</title>
 
   <!-- Bootstrap CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -58,7 +58,7 @@ include "../admin/koneksi.php";
       </div>
 
       <!--logo start-->
-      <a href="../guest/admin.html" class="logo">TREN<span class="lite">DIKSI</span></a>
+      <a href="../guest/admin.php" class="logo">TREN<span class="lite">DIKSI</span></a>
       <!--logo end-->
 
       <div class="nav search-row" id="top_menu">
@@ -215,7 +215,7 @@ include "../admin/koneksi.php";
               </li>
               
               <li>
-            <a href="../guest/logout.php"><i class="icon_key_alt"></i> Log Out</a>
+                  <a href="../guest/logout.php"><i class="icon_key_alt"></i> Log Out</a>
               </li>
               
             </ul>
@@ -283,6 +283,8 @@ include "../admin/koneksi.php";
         <!-- sidebar menu end-->
       </div>
     </aside>
+    <!--sidebar end-->
+
     <!--main content start-->
     <section id="main-content">
       <section class="wrapper">
@@ -290,85 +292,66 @@ include "../admin/koneksi.php";
           <div class="col-lg-12">
             <img src="img/head.png" width="100%"><!--<i class="fa fa-laptop"></i> Dashboard</h3> -->
             <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="../guest/admin.html">Home</a></li>
-              <li><i class="fa fa-table"></i>Table</li>
-              <li><i class="fa fa-th-list"></i>Tabel Perijinan</li>
+              <li><i class="fa fa-home"></i><a href="../guest/admin.php">Home</a></li>
+              <li><i class="fa fa-bars"></i>Pages</li>
+              <li><i class="fa fa-square-o"></i>Contact</li>
             </ol>
           </div>
         </div>
-        <!-- page start-->
+        <!-- Form validations -->
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Tabel Perijinan
+                Form validations
               </header>
-              <table class="table">
-                <?php 
-                  include "../admin/koneksi.php";
-                ?>
-                <thead>
-                  <tr>
-                    <th>No.</th>
-                    <th>Nama</th>
-                    <th>Tujuan</th>
-                    <th>Tgl Izin</th>
-                    <th>Tgl Kembali</th>
-                    <th><i class="icon_cogs"></i> Action</th>
-                  </tr>
-                  
-                </thead>
-                <tbody>
-                  <?php 
-                  $query=mysqli_query($con,"SELECT * FROM perijinan ORDER BY nama");
-                  $no=1;
-                  while($var=mysqli_fetch_array($query)){
-                  echo "<tr>
-                    <td>$no</td>
-                    <td>$var[nama]</td>
-                    <td>$var[tujuan]</td>
-                    <td>$var[tgl_izin]</td>
-                    <td>$var[tgl_kembali]</td>";
-                  ?>
-                    <td>
-                      <div class="btn-group">
-                        <a class="btn btn-primary" href="form-perijinan.php"><i class="icon_plus_alt2"></i></a>
-                        <a class="btn btn-success" <?php echo "href='formeditijin.php?nama=$var[nama]'"; ?>><i class="icon_pencil-edit"></i></a>
-                        <a class="btn btn-danger" <?php echo "href='deleteperijinan.php?nama=$var[nama]'"; ?>><i class="icon_close_alt2"></i></a>
+              <div class="panel-body">
+                <!-- Container (Contact Section) -->
+                <div id="contact" class="container-fluid bg-grey">
+                  <h2 class="text-center">CONTACT</h2>
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <p>Contact us and we'll get back to you within 24 hours.</p>
+                      <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
+                      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
+                      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
+                    </div>
+                    <div class="col-sm-7 slideanim">
+                      <div class="row">
+                        <div class="col-sm-6 form-group">
+                          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+                        </div>
+                        <div class="col-sm-6 form-group">
+                          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+                        </div>
                       </div>
-                    </td>
-                  <?php echo "</tr>";
-                  $no++;
-                  }
-                  ?>
-                </tbody>
-              </table>
+                      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+                      <div class="row">
+                        <div class="col-sm-12 form-group">
+                          <button class="btn btn-default pull-right" type="submit">Send</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </section>
           </div>
         </div>
-        <!-- page end-->
-      </section>
-    </section>
-    <!--main content end-->
-    <div class="text-right">
-      <div class="credits">
-          <!--
-            All the links in the footer should remain intact.
-            You can delete the links only if you purchased the pro version.
-            Licensing information: https://bootstrapmade.com/license/
-            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
-          -->
-          <a href="https://bootstrapmade.com/">Free Bootstrap Templates</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-        </div>
-    </div>
-  </section>
+        
   <!-- container section end -->
+
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
-  <!-- nicescroll -->
+  <!-- nice scroll -->
   <script src="js/jquery.scrollTo.min.js"></script>
   <script src="js/jquery.nicescroll.js" type="text/javascript"></script>
+  <!-- jquery validate js -->
+  <script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+  <!-- custom form validation script for this page-->
+  <script src="js/form-validation-script.js"></script>
   <!--custome script for all page-->
   <script src="js/scripts.js"></script>
 

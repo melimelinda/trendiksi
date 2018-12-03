@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+session_start();
+include "../admin/koneksi.php";
+
+  if(!isset($_SESSION['username'])){
+    header("location:login.php");
+    exit();
+  }else{
+    $username = $_SESSION['username'];
+  }
+  ?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -187,7 +197,12 @@
                             <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                            <span class="username">Meli Melinda</span>
+                            <span class="username">
+                              <?php 
+                                //$_SESSION['username']=$username; 
+                                echo "$username";
+                              ?>
+                             </span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">

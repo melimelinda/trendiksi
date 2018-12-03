@@ -1,3 +1,8 @@
+<?php 
+include "koneksi.php";
+$nik=$_GET['nik'];
+$query=mysqli_query($con,"select * from santri where nik='$nik'");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -187,7 +192,12 @@
                             <span class="profile-ava">
                                 <img alt="" src="img/avatar1_small.jpg">
                             </span>
-                            <span class="username">Meli Melinda</span>
+                            <span class="username">
+                              <?php 
+                                //$_SESSION['username']=$username; 
+                                echo "$username";
+                              ?>
+                             </span>
                             <b class="caret"></b>
                         </a>
             <ul class="dropdown-menu extended logout">
@@ -200,7 +210,7 @@
               </li>
               
               <li>
-                  <a href="../guest/logout.php"><i class="icon_key_alt"></i> Log Out</a>
+                 <a href="../guest/logout.php"><i class="icon_key_alt"></i> Log Out</a>
               </li>
               
             </ul>
@@ -278,8 +288,8 @@
             <img src="img/head.png" width="100%"><!--<i class="fa fa-laptop"></i> Dashboard</h3> -->
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="../guest/admin.php">Home</a></li>
-              <li><i class="fa fa-bars"></i>Pages</li>
-              <li><i class="fa fa-square-o"></i>Contact</li>
+              <li><i class="icon_document_alt"></i>Forms</li>
+              <li><i class="fa fa-files-o"></i>Form Data Santri</li>
             </ol>
           </div>
         </div>
@@ -288,42 +298,105 @@
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Form validations
+                Form Data Santri
               </header>
               <div class="panel-body">
-                <!-- Container (Contact Section) -->
-                <div id="contact" class="container-fluid bg-grey">
-                  <h2 class="text-center">CONTACT</h2>
-                  <div class="row">
-                    <div class="col-sm-5">
-                      <p>Contact us and we'll get back to you within 24 hours.</p>
-                      <p><span class="glyphicon glyphicon-map-marker"></span> Chicago, US</p>
-                      <p><span class="glyphicon glyphicon-phone"></span> +00 1515151515</p>
-                      <p><span class="glyphicon glyphicon-envelope"></span> myemail@something.com</p>
-                    </div>
-                    <div class="col-sm-7 slideanim">
-                      <div class="row">
-                        <div class="col-sm-6 form-group">
-                          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-                        </div>
-                        <div class="col-sm-6 form-group">
-                          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-                        </div>
-                      </div>
-                      <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-                      <div class="row">
-                        <div class="col-sm-12 form-group">
-                          <button class="btn btn-default pull-right" type="submit">Send</button>
-                        </div>
+                <div class="form">
+                  <form class="form-validate form-horizontal" id="formeditsantri" method="POST" action="editsantri.php">
+                    <?php
+                      while($row=mysqli_fetch_array($query)){
+                    ?>
+                    <div class="form-group ">
+                      <label for="nik" class="control-label col-lg-2">NIK </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="nik" name="nik" type="text" value="<?php echo $row['nik'];?>" required />
                       </div>
                     </div>
-                  </div>
+                    <div class="form-group ">
+                      <label for="nama" class="control-label col-lg-2">Nama </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="nama" name="nama" type="text" value="<?php echo $row['nama'];?>" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="tmptlahir" class="control-label col-lg-2">Tempat Lahir </label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="tmptlahir" type="text" name="tmptlahir" value="<?php echo $row['tempatlahir'];?>" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="tgllahir" class="control-label col-lg-2">Tgl Lahir </label>
+                      <div class="col-lg-10">
+                        <input class="form-control " id="tgllahir" type="text" name="tgllahir" value="<?php echo $row['tgllahir'];?>" />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="jk" class="control-label col-lg-2">Jenis Kelamin </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="jk" name="jk" type="text" value="<?php echo $row['jk'];?>" data-date-format="dd-mm-yyyy" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="alamat" class="control-label col-lg-2">Alamat </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="alamat" name="alamat" type="text" value="<?php echo $row['alamat'];?>" data-date-format="dd-mm-yyyy" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="status" class="control-label col-lg-2">Status </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="status" name="status" type="text" value="<?php echo $row['status'];?>" data-date-format="dd-mm-yyyy" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="kewarganegaraan" class="control-label col-lg-2">Kewarganegaraan </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="kewarganegaraan" name="kewarganegaraan" type="text" value="<?php echo $row['kewarganegaraan'];?>" data-date-format="dd-mm-yyyy" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="pekerjaan" class="control-label col-lg-2">Pekerjaan </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="pekerjaan" name="pekerjaan" type="text" value="<?php echo $row['pekerjaan'];?>" data-date-format="dd-mm-yyyy" required />
+                      </div>
+                    </div>
+                    <div class="form-group ">
+                      <label for="notelp" class="control-label col-lg-2">No. Telp </label>
+                      <div class="col-lg-10">
+                        <input class="form-control" id="notelp" name="notelp" type="text" value="<?php echo $row['notelp'];?>" data-date-format="dd-mm-yyyy" required />
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-lg-offset-2 col-lg-10">
+                        <button class="btn btn-primary" type="submit">Update</button>
+                        <button class="btn btn-default" type="button">Cancel</button>
+                      </div>
+                    </div>
+                    <?php } ?>
+                  </form>
                 </div>
+
               </div>
             </section>
           </div>
         </div>
         
+        <!-- page end-->
+      </section>
+    </section>
+    <!--main content end-->
+    <div class="text-right">
+      <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
+          -->
+          <a href="https://bootstrapmade.com/">Free Bootstrap Templates</a> by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        </div>
+    </div>
+  </section>
   <!-- container section end -->
 
   <!-- javascripts -->
