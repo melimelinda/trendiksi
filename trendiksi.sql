@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 16, 2018 at 06:46 AM
+-- Generation Time: Jan 02, 2019 at 03:24 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.1
 
@@ -19,29 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `trendiksi`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `carousel`
---
-
-CREATE TABLE `carousel` (
-  `id` int(11) NOT NULL,
-  `title` varchar(30) NOT NULL,
-  `text` varchar(255) NOT NULL,
-  `img` varchar(255) NOT NULL,
-  `active` int(2) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `carousel`
---
-
-INSERT INTO `carousel` (`id`, `title`, `text`, `img`, `active`) VALUES
-(1, 'TUTORIALWEB.NET', 'tutorial bagaimana cara membuat Bootstrap Carousel (Image Slider) yang mana data (gambar dan deskripsi) disimpan di database MySQL dengan PHP', 'logo.jpg', 1),
-(2, 'Bootstrap Carousel', 'tutorial bagaimana cara membuat Bootstrap Carousel (Image Slider) yang mana data (gambar dan deskripsi) disimpan di database MySQL dengan PHP', 'head.png', 0),
-(3, 'PINO.WEB.ID', 'tutorial bagaimana cara membuat Bootstrap Carousel (Image Slider) yang mana data (gambar dan deskripsi) disimpan di database MySQL dengan PHP', 'logo.png', 0);
 
 -- --------------------------------------------------------
 
@@ -62,10 +39,56 @@ CREATE TABLE `galeri` (
 --
 
 INSERT INTO `galeri` (`id_galeri`, `nama`, `tgl_galeri`, `gambar`, `deskripsi`) VALUES
-(6, 'jkdhsakd', '2018-12-07', 'B612_20171020_143313.jpg', '<p>dsajdhaskdha</p>\r\n'),
-(7, 'hgjhg', '2018-12-08', 'IMG_20180306_220441.jpg', '<p>nbmnbmbm</p>\r\n'),
-(8, 'mbmn', '2018-12-08', 'IMG_20180318_110452.jpg', '<p>mnmbmb</p>\r\n'),
-(9, 'mbuh', '2018-12-14', 'IMG-20180501-WA0002.jpg', '<p>fsdfdsfsdfds</p>\r\n');
+(9, 'mbuh', '2018-12-14', 'IMG-20180501-WA0002.jpg', '<p>fsdfdsfsdfds</p>\r\n'),
+(10, 'hgfhgfh', '2018-12-16', 'IMG-20180505-WA0007.jpg', '<p>gdhfhgf</p>\r\n'),
+(11, 'jkhajkd', '2019-01-02', 'FB_IMG_15142016716932720.jpg', '<p><strong>jhdadgasdgadg</strong></p>\r\n');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inbox`
+--
+
+CREATE TABLE `inbox` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `notelp` varchar(15) NOT NULL,
+  `pesan` text NOT NULL,
+  `tgl` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inbox`
+--
+
+INSERT INTO `inbox` (`id`, `nama`, `email`, `notelp`, `pesan`, `tgl`) VALUES
+(3, 'nana', 'nana@gmail.com', '34323424', 'mau numpang nginep boleh?', '2018-12-19'),
+(4, 'fh', 'shel@gmail.com', '575', 'hgh', '2019-01-02'),
+(5, 'djhadgs', 'shel@gmail.com', '41242151', 'dfdafafa', '2019-01-02'),
+(6, 'ayu', 'ayu@Gmail.com', '648174584146', 'mau daftar gimana caranya', '2019-01-02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kontak`
+--
+
+CREATE TABLE `kontak` (
+  `id` int(11) NOT NULL,
+  `alamat` varchar(250) NOT NULL,
+  `fb` varchar(250) NOT NULL,
+  `tw` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `nohp` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kontak`
+--
+
+INSERT INTO `kontak` (`id`, `alamat`, `fb`, `tw`, `email`, `nohp`) VALUES
+(1, 'Desa Lohbener Lor Kec. Lohbener Kab. Indramayu', 'https://www.facebook.com/profile.php?id=100005055856241', 'https://www.facebook.com/profile.php?id=100005055856241', 'melinawada29@gmail.com', '08978208749');
 
 -- --------------------------------------------------------
 
@@ -105,8 +128,26 @@ CREATE TABLE `perijinan` (
 --
 
 INSERT INTO `perijinan` (`nik`, `nama`, `tujuan`, `tgl_izin`, `tgl_kembali`) VALUES
-(31312312, 'desi', 'balik', '2018-12-14', '2018-12-14'),
-(56789, 'meli', 'fndsh', '2018-12-14', '2018-12-14');
+(3243432, 'meli', 'balik', '2018-12-16', '2018-12-16'),
+(312321, 'meli', 'balik', '2019-01-02', '2019-01-19'),
+(323124, 'dsadsafdaf', 'fddfsfdsf', '2019-01-02', '2019-01-26');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profil`
+--
+
+CREATE TABLE `profil` (
+  `namadepan` varchar(250) NOT NULL,
+  `namabelakang` varchar(250) NOT NULL,
+  `aboutme` text NOT NULL,
+  `alamat` varchar(250) NOT NULL,
+  `tgllahir` date NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `notelp` int(15) NOT NULL,
+  `website` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -132,9 +173,28 @@ CREATE TABLE `santri` (
 --
 
 INSERT INTO `santri` (`nik`, `nama`, `tempatlahir`, `tgllahir`, `jk`, `alamat`, `status`, `kewarganegaraan`, `pekerjaan`, `notelp`) VALUES
-(123456, 'Rama', 'indramayu', '0000-00-00', 'p', 'sukasari', 'mahasiswa', 'indonesia', 'nganggur', 2147483647),
-(1703046, 'meli melinda', 'indramayu', '0000-00-00', 'p', 'sukasari', 'mahasiswa', 'indonesia', 'mahasiswa', 2147483647),
-(21312323, 'asdsad', '13 wedfwdssa 12', '2018-12-14', 'l', 'sdsa', 'dasdasd', 'dasdas', 'sdasd', 21313);
+(1703046, 'desi', 'indramayu', '0000-00-00', 'p', 'sukasari', 'mahasiswa', 'indonesia', 'mahasiswa', 2147483647),
+(3123123, 'fsdfds', 'djfhdsjfhs', '2019-01-19', 'p', 'ddhsajdhasj', 'djshjkash', 'dahdasjk', 'hajkdhasjk', 764832746);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `struktur`
+--
+
+CREATE TABLE `struktur` (
+  `id` int(11) NOT NULL,
+  `file` varchar(250) NOT NULL,
+  `tgl` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `struktur`
+--
+
+INSERT INTO `struktur` (`id`, `file`, `tgl`) VALUES
+(1, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', '2018-12-16'),
+(7, 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', '2019-01-02');
 
 -- --------------------------------------------------------
 
@@ -156,27 +216,27 @@ CREATE TABLE `tamu` (
 --
 
 INSERT INTO `tamu` (`id_tamu`, `nama`, `alamat`, `keterangan`, `tgl`, `no_tlp`) VALUES
-(1, 'dsasds', 'dsds', 'dsadsad', '0000-00-00', '0'),
-(2, 'dfsdf', 'sdfdsf', 'fsdsds', '0000-00-00', '2147483647'),
-(3, 'kris', 'lea', 'berkunjung', '0000-00-00', '897838098'),
-(4, 'ayu', 'brebes', 'berkunjung', '0000-00-00', '2147483647'),
-(5, 'wq2wqw2w23', 'wewew', 'asasas', '0000-00-00', '121212'),
-(6, 'ayu', 'brebes', 'menginap', '2018-12-13', '2147483647'),
-(7, 'ayu', 'jtb', 'berkunjung', '2018-12-13', '2147483647'),
-(8, 'zfsdkjfh', 'jhfkejhrds', 'kjdhsuhsk', '2018-12-13', '2147483647'),
-(9, 'fzfsfasfas', 'fdsfsfdsf', 'cdfsdgd', '2018-12-13', '4345345345'),
-(10, 'meli', 'asad', 'dasdasdas', '2018-12-14', '312321321'),
-(11, 'juli', 'dasdasd', 'dsadsa', '2018-12-14', '31312');
+(6, 'meli', 'jakarta', 'menginap', '2018-12-13', '2147483647'),
+(10, 'desi', 'korea', 'menginap', '2018-12-14', '2147483647'),
+(11, 'ayu', 'jakarta', 'balik', '2018-12-14', '2147483647'),
+(12, 'juni', 'hfsdhghj', 'dhasjdgha', '2019-01-02', '76312735127'),
+(13, 'rina', 'fddsfsd', 'fsdfsdfsd', '2019-01-02', '33423432432');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `visimisi`
+--
+
+CREATE TABLE `visimisi` (
+  `id` int(11) NOT NULL,
+  `file` varchar(250) NOT NULL,
+  `tgl` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `carousel`
---
-ALTER TABLE `carousel`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `galeri`
@@ -185,10 +245,28 @@ ALTER TABLE `galeri`
   ADD PRIMARY KEY (`id_galeri`);
 
 --
+-- Indexes for table `inbox`
+--
+ALTER TABLE `inbox`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `kontak`
+--
+ALTER TABLE `kontak`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `santri`
 --
 ALTER TABLE `santri`
   ADD PRIMARY KEY (`nik`);
+
+--
+-- Indexes for table `struktur`
+--
+ALTER TABLE `struktur`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tamu`
@@ -197,29 +275,50 @@ ALTER TABLE `tamu`
   ADD PRIMARY KEY (`id_tamu`);
 
 --
+-- Indexes for table `visimisi`
+--
+ALTER TABLE `visimisi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `carousel`
---
-ALTER TABLE `carousel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
 -- AUTO_INCREMENT for table `galeri`
 --
 ALTER TABLE `galeri`
-  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_galeri` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `inbox`
+--
+ALTER TABLE `inbox`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `kontak`
+--
+ALTER TABLE `kontak`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `santri`
 --
 ALTER TABLE `santri`
-  MODIFY `nik` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21312324;
+  MODIFY `nik` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3123124;
+--
+-- AUTO_INCREMENT for table `struktur`
+--
+ALTER TABLE `struktur`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `tamu`
 --
 ALTER TABLE `tamu`
-  MODIFY `id_tamu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_tamu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT for table `visimisi`
+--
+ALTER TABLE `visimisi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
