@@ -66,7 +66,7 @@ $query=mysqli_query($con,"select * from kontak where id='$id'");
             <ol class="breadcrumb">
               <li><i class="fa fa-home"></i><a href="../guest/admin.php">Home</a></li>
               <li><i class="icon_document_alt"></i>Forms</li>
-              <li><i class="fa fa-files-o"></i>Form Perijinan</li>
+              <li><i class="fa fa-files-o"></i>Contact</li>
             </ol>
           </div>
         </div>
@@ -75,7 +75,7 @@ $query=mysqli_query($con,"select * from kontak where id='$id'");
           <div class="col-lg-12">
             <section class="panel">
               <header class="panel-heading">
-                Form Perijinan
+                Contact
               </header>
               <div class="panel-body">
                 <div class="form">

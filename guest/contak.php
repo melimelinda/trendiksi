@@ -181,40 +181,6 @@ VALUE('$nama','$email','$notelp','$pesan','$tgl')")or die("Database Tidak Bisa D
                             <!-- <button type="submit" class="btn btn-primary btn-xl" id="sendMessageButton">Send</button> -->
                           </div>
                         </form>
-                        <!-- <form class="form-validate form-horizontal" id="formperijinan" method="POST" action="editkontak.php">
-                          <div class="form-group ">
-                            <label for="nama" class="control-label col-lg-2">Name </label>
-                            <div class="col-lg-10">
-                              <input class="form-control" id="nama" name="nama" type="text" required />
-                            </div>
-                          </div>
-                          <div class="form-group ">
-                            <label for="notelp" class="control-label col-lg-2">Email </label>
-                            <div class="col-lg-10">
-                              <input class="form-control" id="notelp" name="email" type="text" data-date-format="dd-mm-yyyy" required />
-                            </div>
-                          </div>
-                          <div class="form-group ">
-                            <label for="notelp" class="control-label col-lg-2">Phone Number </label>
-                            <div class="col-lg-10">
-                              <input class="form-control" id="notelp" name="nohp" type="text" data-date-format="dd-mm-yyyy" required />
-                            </div>
-                          </div>
-                          <div class="form-group ">
-                            <label for="notelp" class="control-label col-lg-2">Message </label>
-                            <div class="col-lg-10">
-                              <input class="form-control" id="notelp" name="pesan" type="text" data-date-format="dd-mm-yyyy" required />
-                            </div>
-                          </div>
-                          </div>
-                          <div class="form-group">
-                            <div class="col-lg-offset-2 col-lg-10">
-                              <button class="btn btn-primary" type="submit">Update</button>
-                            </div>
-                          </div>
-                        </form> -->
-                      <!-- </div>
-                    </div>  -->
                         
                       </div>
                     </div> 
@@ -240,11 +206,7 @@ VALUE('$nama','$email','$notelp','$pesan','$tgl')")or die("Database Tidak Bisa D
                               <i class="fab fa-fw fa-facebook-f"></i>
                             </a>
                           </li>
-                          <li class="list-inline-item">
-                            <a class="btn btn-outline-light btn-social text-center rounded-circle"  >
-                              <i class="fab fa-fw fa-google-plus-g"></i>
-                            </a>
-                          </li>
+                          <!--  -->
                           <li class="list-inline-item">
                             <a class="btn btn-outline-light btn-social text-center rounded-circle" >
                               <i class="fab fa-fw fa-twitter"></i>
