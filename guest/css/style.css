@@ -168,7 +168,7 @@ table tr th { color: #688a7e;}
 
 .login-img3-body{
 
-  background: url('../img/logo.png') no-repeat center center fixed; 
+  background: url('../img/bg-1.jpg') no-repeat center center fixed; 
 
   -webkit-background-size: cover;
 
@@ -1790,7 +1790,7 @@ div[data-role="editor-toolbar"] {
 
 .breadcrumb li i {
 
-  Font-size: 15px;
+  Font-size: 20px;
 
   margin-right: 5px;
 

@@ -61,167 +61,36 @@ include "../admin/koneksi.php";
   <section id="container" class="">
 
 
-    <header class="header dark-bg">
+   <header class="header dark-bg">
       <div class="toggle-nav">
         <div class="icon-reorder tooltips" data-original-title="Toggle Navigation" data-placement="bottom"><i class="icon_menu"></i></div>
       </div>
 
       <!--logo start-->
-      <a href="admin.php" class="logo">TREN<span class="lite">DIKSI</span></a>
+      <a href="../guest/admin.php" class="logo">TREN<span class="lite">DIKSI</span></a>
       <!--logo end-->
 
-      <div class="nav search-row" id="top_menu">
-        <!--  search form start -->
-        <ul class="nav top-menu">
-          <li>
-            <form class="navbar-form">
-              <input class="form-control" placeholder="Search" type="text">
-            </form>
-          </li>
-        </ul>
-        <!--  search form end -->
-      </div>
+      
 
       <div class="top-nav notification-row">
         <!-- notificatoin dropdown start-->
         <ul class="nav pull-right top-menu">
-
-          <!-- task notificatoin start -->
-          
-          <!-- task notificatoin end -->
-          <!-- inbox notificatoin start-->
-          <li id="mail_notificatoin_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <i class="icon-envelope-l"></i>
-                            <span class="badge bg-important">5</span>
-                        </a>
-            <ul class="dropdown-menu extended inbox">
-              <div class="notify-arrow notify-arrow-blue"></div>
-              <li>
-                <p class="blue">You have 5 new messages</p>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Greg  Martin</span>
-                                    <span class="time">1 min</span>
-                                    </span>
-                                    <span class="message">
-                                        I really like this admin panel.
-                                    </span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini2.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Bob   Mckenzie</span>
-                                    <span class="time">5 mins</span>
-                                    </span>
-                                    <span class="message">
-                                     Hi, What is next project plan?
-                                    </span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini3.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Phillip   Park</span>
-                                    <span class="time">2 hrs</span>
-                                    </span>
-                                    <span class="message">
-                                        I am like to buy this Admin Template.
-                                    </span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="photo"><img alt="avatar" src="./img/avatar-mini4.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Ray   Munoz</span>
-                                    <span class="time">1 day</span>
-                                    </span>
-                                    <span class="message">
-                                        Icon fonts are great.
-                                    </span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">See all messages</a>
-              </li>
-            </ul>
-          </li>
-          <!-- inbox notificatoin end -->
-          <!-- alert notification start-->
-          <li id="alert_notificatoin_bar" class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-
-                            <i class="icon-bell-l"></i>
-                            <span class="badge bg-important">7</span>
-                        </a>
-            <ul class="dropdown-menu extended notification">
-              <div class="notify-arrow notify-arrow-blue"></div>
-              <li>
-                <p class="blue">You have 4 new notifications</p>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="label label-primary"><i class="icon_profile"></i></span>
-                                    Friend Request
-                                    <span class="small italic pull-right">5 mins</span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="label label-warning"><i class="icon_pin"></i></span>
-                                    John location.
-                                    <span class="small italic pull-right">50 mins</span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="label label-danger"><i class="icon_book_alt"></i></span>
-                                    Project 3 Completed.
-                                    <span class="small italic pull-right">1 hr</span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">
-                                    <span class="label label-success"><i class="icon_like"></i></span>
-                                    Mick appreciated your work.
-                                    <span class="small italic pull-right"> Today</span>
-                                </a>
-              </li>
-              <li>
-                <a href="#">See all notifications</a>
-              </li>
-            </ul>
-          </li>
-          <!-- alert notification end-->
-          <!-- user login dropdown start-->
           <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                <span class="profile-ava">
-                  <img alt="" src="img/avatar1_small.jpg">
-                </span>
-                <span class="username">
-                  <?php 
-                    //$_SESSION['username']=$username; 
-                    echo "$username";
-                  ?>
-                                
-                </span>
-              <b class="caret"></b>
-            </a>        
+                            <span class="profile-ava icon_profile">
+                            </span>
+                            <span class="username">
+                              <?php 
+                                //$_SESSION['username']=$username; 
+                                echo "$username";
+                              ?>
+                             </span>
+                            <b class="caret"></b>
+                        </a>
             <ul class="dropdown-menu extended logout">
               <div class="log-arrow-up"></div>
-              <li class="eborder-top">
-                <a href="myprofil.php"><i class="icon_profile"></i> My Profile</a>
-              </li>
               <li>
-                <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
+                <a href="../admin/inbox.php"><i class="icon_mail_alt"></i> My Inbox</a>
               </li>
               
               <li>
@@ -239,12 +108,12 @@ include "../admin/koneksi.php";
     <!--header end-->
 
     <!--sidebar start-->
-    <aside>
+   <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu">
           <li class="active">
-            <a class="" href="admin.php">
+            <a class="" href="../guest/admin.php">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
@@ -282,8 +151,8 @@ include "../admin/koneksi.php";
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
             <ul class="sub">
-              <li><a class="" href="../admin/profile.php">Profile</a></li>
-              <li><a class="" href="../admin/about.php"><span>About</span></a></li>
+             <!--  <li><a class="" href="../admin/struktur.php">Struktur</a></li>
+              <li><a class="" href="../admin/visi-misi.php"><span>Visi-Misi</span></a></li> -->
               <li><a class="" href="../admin/galery.php">Galery</a></li>
               <li><a class="" href="../admin/contak.php">Contak</a></li>
             </ul>
@@ -297,53 +166,47 @@ include "../admin/koneksi.php";
 
     <!--main content start-->
     <section id="main-content">
-      <section class="wrapper">
         <!--overview start-->
         <div class="row">
           <div class="col-lg-12">
-             <img src="img/head.png" width="100%" ><!--<i class="fa fa-laptop"></i> Dashboard</h3> -->
-            <ol class="breadcrumb">
-              <li><i class="fa fa-home"></i><a href="admin.html">Home</a></li>
-              <li><i class="fa fa-laptop"></i>Dashboard</li>
-            </ol>
+            <br/>
+            <br/>
+             <img src="img/head.png" width="100%" >
+            <!-- <ol class="breadcrumb">
+              <li><i class="fa fa-home"></i><a href="admin.php">Home</a></li>
+              <li><a href="sejarah.html">Sejarah</a></li>
+              <li><a href="struktur.html">Struktur</a></li>
+              <li><a href="visi-misi.php">Visi-Misi</a></li>
+              <li><a href="contak1.html">Contact</a></li>
+              <li><a href="galery.php">Galery</a></li>
+              <li><a href="login.php">Login</a></li>
+            </ol> -->
           </div>
-        </div>
-
+        </div><br><br>
         <div class="row">
           <div class="container">
-            <h2>Carousel Example</h2>
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
               <!-- Indicators -->
               <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
               </ol>
 
               <!-- Wrapper for slides -->
               <div class="carousel-inner">
 
                 <div class="item active">
-                  <p align="center"><img src="img\gambar1.jpg" alt="Los Angeles" style="width:50%;"></p>
+                  <p align="center"><img src="img\logo.png" alt="Chicago" style="width:20%;"></p>
                   <div class="carousel-caption">
-                    <h3>Los Angeles</h3>
-                    <p>LA is always so much fun!</p>
+                    <h3>Logo Ponpes</h3>
                   </div>
                 </div>
 
-                <div class="item">
-                  <p align="center"><img src="img\gambar2.jpg" alt="Chicago" style="width:50%;"></p>
-                  <div class="carousel-caption">
-                    <h3>Chicago</h3>
-                    <p>Thank you, Chicago!</p>
-                  </div>
-                </div>
               
                 <div class="item">
-                  <p align="center"><img src="img\gambar3.jpg" alt="New York" style="width:50%;"></p>
+                  <p align="center"><img src="img\logo.jpg" alt="New York" style="width:50%;"></p>
                   <div class="carousel-caption">
-                    <h3>New York</h3>
-                    <p>We love the Big Apple!</p>
+                    <h3>Logo TRENDIKSI</h3>
                   </div>
                 </div>
             
@@ -361,7 +224,53 @@ include "../admin/koneksi.php";
             </div>
           </div>
 
-        </div>
+        </div><br><br>
+
+
+        <!-- statics end -->
+
+
+
+
+        <!-- project team & activity start -->
+        <div class="row">
+          <div class="col-lg-2">
+            <section class="panel">
+            </section>
+          </div>
+          <div class="col-lg-8">
+            <section class="panel">
+              <div class="panel-body">
+                <h2 class="text-center text-uppercase text-secondary mb-0">PONDOK PESANTREN AL-MANSYUR AS-SALAMAH</h2>
+                <hr class="star-dark mb-5">
+                <br><br>
+                <p align="justify" style="text-align: justify; text-indent: 0.5in; font-size: 17px">Obsesi mendirikan pondok pesantren
+                    Terinspirasi dari Mas oping syarofin  memiliki pondok pesantren di Jogja lebih dari 200, semua anak dominan Indramayu di sini pun terinspirasi dari beliau.</p> <br>
+                    <p align="justify" style="text-align: justify; text-indent: 0.5in; font-size: 17px">
+                    Mamih dan bapa Hayudi sejatinya dengan rasa kedermawanan dari keduanya berinisiatif untuk mendirikan pondok pesantren modern dengan sasaran Anak-anak yatim-piatu disekitar lingkungan, ide itu muncul pada tahun 2014 lalu karena dorongan hati nurani mereka. Mereka berfikir lahan rumah seluas itu hanya di huni oleh mereka dan pembantunya dikarenakan anak-anak mereka sudah tumbuh besar dan nantinya berkeluarga dan pergi dengan kehidupan baru mereka masing-masing. Keduanya tidak ingin kesepian melanda ketika anak-anak mereka sudah berkeluarga. </p><br>
+                    <p align="justify" style="text-align: justify; text-indent: 0.5in; font-size: 17px">
+                    Disitulah ide mendirikan pondok pesantren Al Mansyur As Salamah muncul, namun niat baik belum tentu akan mendapatkan jalan yang mudah. Mereka hampir putus asa karena belum bisa mendapatkan anak asuh (santri/anak yatim) dan ditambah lagi dengan dana yg mereka punya minim. Singkat cerita 2 tahun silam penuh kegelisahan, muncullah ide untuk mencari santri dengan bekerja sama dengan kampus yang jaraknya lumayan dekat dari pondok, dan terjadilah pertemuan dengan  pihak kampus (pa Jamal) menyarankan  untuk yang menjadi santri disitu anak-anak yang sekiranya sangat membutuhkan khususnya anak formadiksi. </p><br>
+                    <p align="justify" style="text-align: justify; text-indent: 0.5in; font-size: 17px">
+                    Pa oping dan pa Hayudi 
+                    "Temen sedari SD sampai kuliah bareng".Cita cita pondok pesantren Al Mansyur As Salamah Ingin membangun 50 kamar @2 orang....kapasitas 100 orang harapan lebih dari itu.
+
+                    Pa Hayudi orang yang sangat sibuk, pondok pesantren Al Mansyur As Salamah... berjalan dengan mandiri, dan nanti akan ada teman dari pa oping
+                    Dan kegiatan bukan hanya mengaji...akan di beri motivasi enterpreneur dan lain sebagainya...
+                    Makna dari materi
+                    Surah at talak ayat 2
+                    "Siapa orang yang bertakwa kepada Allah, maka Allah akan memberikan jalan keluar"
+                    "Bahkan Allah mengatakan bahwa yang bertakwa kepada-Nya maka akan mendapatkan rejeki yang tidak terduga"
+                    Jangan lupa
+                    "Berbakti kepada orang tua, tentu orang tua yang kita utamakan"
+                    Sekian.</p>
+              </div>
+            </section>
+          </div>
+          <div class="col-lg-2">
+            <section class="panel">
+            </section>
+          </div>
+        </div><br><br>
         <!--/.row-->
 
 
@@ -418,8 +327,8 @@ include "../admin/koneksi.php";
         </div>
       </div>
     </section>
-    <!--main content end-->
-  </section>
+    <!--main content end--><!-- 
+  </section> -->
   <!-- container section start -->
 
   <!-- javascripts -->
